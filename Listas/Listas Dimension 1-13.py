@@ -85,7 +85,7 @@ while num!=0:
 lista=list(set(lista))
 print(lista)
 
-#Ejercicio 7
+#Ejercicio 7: Promedio de una lista
 # =============================================================
 lista=[]
 num=int(input("Ingrese la lista de numeros y 0 para salir"))
@@ -98,6 +98,29 @@ for i in lista:
     contador+=1 
 promedio=suma/contador
 print("El promedio es", promedio)
+
+#Ejercicio 8: Encontrar Elementos Repetidos
+# =============================================================
+listaNumeros = [1, 2, 3, 4, 2, 7, 3, 8, 1, 9, 4, 4]
+conteo = {}
+for elemento in listaNumeros:
+    if elemento in conteo:
+        conteo[elemento] += 1
+    else:
+        conteo[elemento] = 1
+print("Elementos repetidos (diccionario):")
+for elemento, cantidad in conteo.items():
+    if cantidad > 1:
+        print(f"{elemento} aparece {cantidad} veces")
+vistos = set()
+repetidos = set()
+for elemento in listaNumeros:
+    if elemento in vistos:
+        repetidos.add(elemento)
+    else:
+        vistos.add(elemento)
+print("\nElementos repetidos (set):")
+print(repetidos)
 
 # Ejercicio 9: Lista de Numeros Primos
 # =============================================================
@@ -120,7 +143,6 @@ def ejercicio_9():
     print(f"Lista original: {lista}")
     print( "Numeros primos: {primos}")
 
-# =============================================================
 # Ejercicio 10: Eliminar un Elemento por su indice
 # =============================================================
 def ejercicio_10():

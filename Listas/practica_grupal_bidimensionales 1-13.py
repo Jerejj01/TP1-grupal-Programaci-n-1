@@ -1,10 +1,23 @@
 # LISTAS BIDIMENSIONALES
 #Ejercicio 1: Crear una matriz de numeros 
 # =============================================================
-lista_numeros = input("Ingrese números para agregar a su lista, separados por comas: ").split(",")
-lista_numeros = [int(x) for x in lista_numeros]
-suma = sum(lista_numeros)
-print(f"Su lista dio como suma total: {suma}")
+def crear_matriz(filas, columnas):
+    matriz = []
+    contador = 1
+    
+    for i in range(filas):
+        fila = []
+        for j in range(columnas):
+            fila.append(contador)
+            contador += 1
+        matriz.append(fila)
+        
+    return matriz
+
+# Example usage:
+resultado = crear_matriz(3, 4)
+for fila in resultado:
+    print(fila)
 
 #Ejercicio 2: Suma de Todos los Elementos
 # =============================================================
