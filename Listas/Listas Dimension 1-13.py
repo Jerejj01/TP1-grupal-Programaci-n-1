@@ -1,262 +1,233 @@
-#Ejercicio 1: Suma de Elementos
+# Ejercicio 1: Suma de elementos
 # =============================================================
-cantidad = int(input("Ingrese la cantidad de elementos quiere añadir en la lista: "))
-elemento = 0
-listaNumeros = []
+def ejercicio_1():
+    lista = pedir_lista()
+    print("Lista ingresada:", lista)
+    print("La suma de los elementos es:", sum(lista))
 
-for i in range(cantidad):
-    elemento = int(input("Ingrese el elemento que desea añadir: "))
-    listaNumeros.append(elemento)
-    print(listaNumeros)
 
-suma = sum(listaNumeros)
-print(suma)
-#Ejercicio 2: Encontrar el Mayor y el Menor
+# Ejercicio 2: Encontrar el mayor y el menor
 # =============================================================
-cantidad = int(input("Ingrese la cantidad de elementos quiere añadir en la lista: "))
-elemento = 0
-listaNumeros = []
+def ejercicio_2():
+    lista = pedir_lista()
+    print(f"Valor maximo: {max(lista)}")
+    print(f"Valor minimo: {min(lista)}")
 
-for i in range(cantidad):
-    elemento = int(input("Ingrese el elemento que desea añadir: "))
-    listaNumeros.append(elemento)
-    print(listaNumeros)
 
-print(f"Valor maximo: {max(listaNumeros)}")
-print(f"Valor minimo: {min(listaNumeros)}")
-
-#Ejercicio 3: Invertir una Lista
+# Ejercicio 3: Invertir una lista
 # =============================================================
-cantidad = int(input("Ingrese la cantidad de elementos quiere añadir en la lista: "))
-elemento = 0
-listaNumeros = []
-
-for i in range(cantidad):
-    elemento = int(input("Ingrese el elemento que desea añadir: "))
-    listaNumeros.append(elemento)
-    print(listaNumeros)
-
-listaNumeros.reverse()
-print(f"{listaNumeros}")
+def ejercicio_3():
+    lista = pedir_lista()
+    lista.reverse()
+    print("Lista invertida:", lista)
 
 
-#Ejercicio 4: Contar Elementos Pares e Impares
+# Ejercicio 4: Contar pares e impares
 # =============================================================
-contadorPares = 0
-contadorImpares = 0
+def ejercicio_4():
+    lista = pedir_lista()
+    pares = 0
+    impares = 0
 
-cantidad = int(input("Ingrese la cantidad de elementos quiere añadir en la lista: "))
-elemento = 0
-listaNumeros = []
+    for numero in lista:
+        if numero % 2 == 0:
+            pares += 1
+        else:
+            impares += 1
 
-for i in range(cantidad):
-    elemento = int(input("Ingrese el elemento que desea añadir: "))
-    if elemento % 2 == 0:
-        contadorPares += 1
-    else:
-        contadorImpares += 1
-
-    listaNumeros.append(elemento)
-    print(listaNumeros)
-
-print(f"Hay un total de {contadorPares} números pares")
-print(f"Hay un total de {contadorImpares} números impares")
+    print(f"Hay un total de {pares} números pares")
+    print(f"Hay un total de {impares} números impares")
 
 
-#Ejercicio 5: Multiplicar elemento por un valor
+# Ejercicio 5: Multiplicar cada elemento por un valor
 # =============================================================
-lista=[]
-num=int(input("Ingrese la lista de numeros y 0 para salir"))
-while num!=0:
-    lista.append(num)
-    num= int(input("Ingrese la lista de numeros"))
-valor=int(input("INGRESE UN VALOR POR EL CUAL QUIERE MULTIPLICAR CADA ELEMENTO DE LA LISTA"))
-for i in range(len(lista)):
-    lista[i]=lista[i]*valor
-print(lista)
+def ejercicio_5():
+    lista = pedir_lista()
+    valor = int(input("Ingrese un valor por el cual quiere multiplicar cada elemento: "))
+    for i in range(len(lista)):
+        lista[i] = lista[i] * valor
+    print("Lista multiplicada:", lista)
 
-#Ejercicio 6: Eliminar duplicados
+
+# Ejercicio 6: Eliminar duplicados
 # =============================================================
-lista=[]
-num=int(input("Ingrese la lista de numeros y 0 para salir"))
-while num!=0:
-    lista.append(num)
-    num= int(input("Ingrese la lista de numeros"))
-lista=list(set(lista))
-print(lista)
+def ejercicio_6():
+    lista = pedir_lista()
+    sin_duplicados = []
 
-#Ejercicio 7: Promedio de una lista
+    for numero in lista:
+        if numero not in sin_duplicados:
+            sin_duplicados.append(numero)
+
+    print("Lista sin duplicados:", sin_duplicados)
+
+
+# Ejercicio 7: Promedio de una lista
 # =============================================================
-lista=[]
-num=int(input("Ingrese la lista de numeros y 0 para salir"))
-while num!=0:
-    lista.append(num)
-    num= int(input("Ingrese la lista de numeros"))
-contador=0
-suma=sum(lista)   
-for i in lista:
-    contador+=1 
-promedio=suma/contador
-print("El promedio es", promedio)
+def ejercicio_7():
+    lista = pedir_lista()
+    promedio = sum(lista) / len(lista)
+    print("El promedio es:", promedio)
 
-#Ejercicio 8: Encontrar Elementos Repetidos
+
+# Ejercicio 8: Encontrar elementos repetidos
 # =============================================================
-listaNumeros = [1, 2, 3, 4, 2, 7, 3, 8, 1, 9, 4, 4]
-conteo = {}
-for elemento in listaNumeros:
-    if elemento in conteo:
-        conteo[elemento] += 1
-    else:
-        conteo[elemento] = 1
-print("Elementos repetidos (diccionario):")
-for elemento, cantidad in conteo.items():
-    if cantidad > 1:
-        print(f"{elemento} aparece {cantidad} veces")
-vistos = set()
-repetidos = set()
-for elemento in listaNumeros:
-    if elemento in vistos:
-        repetidos.add(elemento)
-    else:
-        vistos.add(elemento)
-print("\nElementos repetidos (set):")
-print(repetidos)
+def ejercicio_8():
+    lista_numeros = [1, 2, 3, 4, 2, 7, 3, 8, 1, 9, 4, 4]
+    repetidos = []
 
-# Ejercicio 9: Lista de Numeros Primos
+    for elemento in lista_numeros:
+        if elemento not in repetidos and lista_numeros.count(elemento) > 1:
+            repetidos.append(elemento)
+
+    print("Elementos repetidos:", repetidos)
+
+    for elemento in repetidos:
+        print(f"{elemento} aparece {lista_numeros.count(elemento)} veces")
+
+
+# Ejercicio 9: Lista de números primos
 # =============================================================
 def es_primo(numero):
-    """Devuelve True si 'numero' es primo, False en caso contrario."""
     if numero < 2:
         return False
     for divisor in range(2, int(numero ** 0.5) + 1):
         if numero % divisor == 0:
             return False
     return True
- 
- 
+
+
 def ejercicio_9():
     datos = input("Ingrese una lista de numeros separados por comas: ")
     lista = [int(x.strip()) for x in datos.split(",")]
- 
-    primos = [n for n in lista if es_primo(n)]
- 
-    print(f"Lista original: {lista}")
-    print( "Numeros primos: {primos}")
+    primos = [numero for numero in lista if es_primo(numero)]
 
-# Ejercicio 10: Eliminar un Elemento por su indice
+    print(f"Lista original: {lista}")
+    print(f"Numeros primos: {primos}")
+
+
+# Ejercicio 10: Eliminar un elemento por su indice
 # =============================================================
 def ejercicio_10():
     datos = input("Ingrese una lista de numeros separados por comas: ")
     lista = [int(x.strip()) for x in datos.split(",")]
- 
+
     indice = int(input(f"Ingrese el indice a eliminar (0 a {len(lista) - 1}): "))
- 
+
     if 0 <= indice < len(lista):
-        del lista[indice]
+        lista.pop(indice)
         print(f"Lista despues de eliminar el indice {indice}: {lista}")
     else:
-        print("indice fuera de rango.")
- 
- 
-# =============================================================
-# Ejercicio 11: Contar Ocurrencias de un Elemento
+        print("Indice fuera de rango.")
+
+
+# Ejercicio 11: Contar ocurrencias de un elemento
 # =============================================================
 def ejercicio_11():
     datos = input("Ingrese una lista de numeros separados por comas: ")
     lista = [int(x.strip()) for x in datos.split(",")]
- 
+
     numero = int(input("Ingrese el numero a buscar: "))
     ocurrencias = lista.count(numero)
- 
+
     print(f"El numero {numero} aparece {ocurrencias} veces en la lista.")
- 
- 
-# =============================================================
-# Ejercicio 12: Sumar Listas Elemento por Elemento
+
+
+# Ejercicio 12: Sumar listas elemento por elemento
 # =============================================================
 def ejercicio_12():
     datos1 = input("Ingrese la primera lista de numeros separados por comas: ")
     lista1 = [int(x.strip()) for x in datos1.split(",")]
- 
+
     datos2 = input("Ingrese la segunda lista de numeros separados por comas: ")
     lista2 = [int(x.strip()) for x in datos2.split(",")]
- 
+
     if len(lista1) != len(lista2):
         print("Error: las listas deben tener la misma longitud.")
         return
- 
+
     suma = [a + b for a, b in zip(lista1, lista2)]
     print(f"Lista 1: {lista1}")
     print(f"Lista 2: {lista2}")
     print(f"Suma elemento por elemento: {suma}")
- 
- 
-# =============================================================
+
+
 # Ejercicio 13: NumPy para trabajar con matrices y arrays
 # =============================================================
 def ejercicio_13():
-    """
-    NumPy es una libreria de Python especializada en calculo numerico y
-    manejo de arrays/matrices de forma mucho mas eficiente que las listas
-    nativas de Python. Sus arrays (ndarray) ocupan menos memoria y permiten
-    realizar operaciones matematicas vectorizadas (sin necesidad de bucles
-    for explicitos), lo cual es mucho mas rapido para grandes volumenes
-    de datos.
- 
-    Instalacion: pip install numpy
-    """
-    import numpy as np
- 
-    # Crear un array a partir de una lista
+    try:
+        import numpy as np
+    except ImportError:
+        print("Para ejecutar este ejercicio se necesita instalar NumPy: pip install numpy")
+        return
+
     array = np.array([1, 2, 3, 4, 5])
-    print("Array 1D:", array)
- 
-    # Crear una matriz (array 2D)
     matriz = np.array([
         [1, 2, 3],
         [4, 5, 6],
         [7, 8, 9]
     ])
+
+    print("Array 1D:", array)
     print("Matriz 2D:\n", matriz)
- 
-    # Operaciones basicas vectorizadas (sin bucles)
     print("Array + 10:", array + 10)
     print("Array * 2:", array * 2)
- 
-    # Suma, maximo, minimo y promedio
     print("Suma de la matriz:", matriz.sum())
     print("Maximo de la matriz:", matriz.max())
     print("Minimo de la matriz:", matriz.min())
     print("Promedio de la matriz:", matriz.mean())
- 
-    # Transponer una matriz (filas <-> columnas)
     print("Matriz transpuesta:\n", matriz.T)
- 
-    # Producto matricial
-    identidad = np.eye(3)  # matriz identidad 3x3
+    identidad = np.eye(3)
     print("Producto matriz x identidad:\n", matriz.dot(identidad))
- 
-    # Forma (dimensiones) del array
     print("Forma de la matriz:", matriz.shape)
- 
- 
+
+
+# =============================================================
+def pedir_lista():
+    cantidad = int(input("Ingrese la cantidad de elementos que quiere añadir: "))
+    lista = []
+
+    for i in range(cantidad):
+        numero = int(input(f"Ingrese el elemento {i + 1}: "))
+        lista.append(numero)
+
+    return lista
+
+
 # =============================================================
 # Menu principal para probar cada ejercicio
 # =============================================================
 if __name__ == "__main__":
-    ejercicios = {
-        "9": ejercicio_9,
-        "10": ejercicio_10,
-        "11": ejercicio_11,
-        "12": ejercicio_12,
-        "13": ejercicio_13,
-    }
- 
-    print("Ejercicios disponibles: 9, 10, 11, 12, 13")
+    print("Ejercicios disponibles: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13")
     opcion = input("Que ejercicio queres ejecutar?: ").strip()
- 
-    if opcion in ejercicios:
-        print(f"\n--- Ejecutando Ejercicio {opcion} ---")
-        ejercicios[opcion]()
+
+    print(f"\n--- Ejecutando Ejercicio {opcion} ---")
+
+    if opcion == "1":
+        ejercicio_1()
+    elif opcion == "2":
+        ejercicio_2()
+    elif opcion == "3":
+        ejercicio_3()
+    elif opcion == "4":
+        ejercicio_4()
+    elif opcion == "5":
+        ejercicio_5()
+    elif opcion == "6":
+        ejercicio_6()
+    elif opcion == "7":
+        ejercicio_7()
+    elif opcion == "8":
+        ejercicio_8()
+    elif opcion == "9":
+        ejercicio_9()
+    elif opcion == "10":
+        ejercicio_10()
+    elif opcion == "11":
+        ejercicio_11()
+    elif opcion == "12":
+        ejercicio_12()
+    elif opcion == "13":
+        ejercicio_13()
     else:
         print("Opcion no valida.")
